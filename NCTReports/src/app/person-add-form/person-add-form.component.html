@@ -1,0 +1,80 @@
+<form
+    [formGroup] = "form"
+    (ngSubmit) = "onSubmit(form.value)"
+>
+    <fieldset class="d-grid gap-2 col-12">
+        <legend style="text-align: center;">REPORT BADDIE</legend>
+        <label>Your name:</label>
+        <input
+            type = "text"
+            name = "reporterName"
+            placeholder = "enter your name"
+            formControlName = "reporterName"
+        >
+        <label>Your phone number:</label>
+        <input
+            type = "number"
+            name = "phoneNumber"
+            placeholder = "enter your phone number"
+            formControlName = "phoneNumber"
+        >
+        <label>Baddie Name:</label>
+        <input
+            type = "text"
+            name = "baddieName"
+            placeholder = "enter baddie name"
+            formControlName = "baddieName"
+        >
+        <div formGroupName="location">
+        <label>Location:</label>
+            <select (change)="onChange($event)"
+                >
+                <option selected disabled value="type-location">Choose an existing location</option>
+                <option value="type-location">Type in location</option>
+                <option 
+                *ngFor="let l of locationArray"
+                [value]="l.locationName"
+                >{{l.locationName}}</option>     
+            </select>
+        <label>Location Name:</label>
+        <input
+            type = "text"
+            name = "location"
+            placeholder = "location"
+            formControlName = "locationName"
+        >
+        <label>Location Latitude:</label>
+        <input
+            type = "number"
+            name = "latitude"
+            placeholder = "latitude"
+            formControlName = "latitude"
+        >
+        <label>Location Longitude:</label>
+        <input
+            type = "number"
+            name = "longtitude"
+            placeholder = "longitude"
+            formControlName = "longtitude"
+        >
+    </div>
+        <label>Their image:</label>
+        <input
+            type = "url"
+            name = "image"
+            placeholder = "enter the image url"
+            formControlName = "image"
+        >
+        <label>Extra info:</label>
+        <input
+            type = "text"
+            name = "extraInfo"
+            placeholder = "enter extra info"
+            formControlName = "extraInfo"
+        >
+
+        <button class="btn btn-success"
+                [disabled]="!form.valid"
+        >SAVE</button>
+    </fieldset>
+</form>

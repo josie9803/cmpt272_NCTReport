@@ -1,0 +1,31 @@
+<div class="d-grid">
+    <button class="btn btn-info"
+            (click)="onCreate()">CREATE NUISANCE REPORT</button>
+</div>
+<app-map 
+    [locationOnMap]="people"
+></app-map>
+<table class="table">
+    <thead class="table-warning fw-bold">
+        <tr>
+            <td>Location</td>
+            <td>Baddie's Name</td>
+            <td>Time</td>
+            <td>Status</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr app-person 
+        *ngFor="let p of people"
+        [person] = "p"
+        (delete)="onPersonDelete($event)"> <!--listen for event called delete-->
+        </tr>
+        <!-- <app-person
+            *ngFor="let p of people"
+            [person] = "p"
+        ></app-person> -->
+    </tbody>
+</table>
+

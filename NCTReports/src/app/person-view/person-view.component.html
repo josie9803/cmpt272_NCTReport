@@ -1,0 +1,47 @@
+<table>
+    <tr>
+        <span *ngIf="personView.url; then url else noturl"></span>
+        <ng-template #url>
+            <img [src]='personView.url' alt="Displayed Image">
+        </ng-template>
+        <ng-template #noturl></ng-template>      
+    </tr>
+    <tr>
+        <td>Baddie's Name: </td>
+        <td>{{personView.baddieName}}</td>
+    </tr>
+    <tr>
+        <td>Reported by: </td>
+        <td>{{personView.reporterName}}</td>
+    </tr>
+    <tr>
+        <td>Phone number: </td>
+        <td>{{personView.phoneNumber}}</td>
+    </tr>
+    <tr>
+        <td>Location: </td>
+        <td>{{personView.location.locationName}}</td>
+    </tr>
+    <tr>
+        <td>Time: </td>
+        <td>{{personView.time | date:'yyyy-MM-dd(h:mm a)' | lowercase}}</td>
+    </tr>
+    <tr>
+        <td>Status: </td>
+        <td>{{personView.status}}</td>
+        <td>
+            <button class="btn btn-info"
+                    (click)="onChange()">Change</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Extra info: </td>
+        <td>{{personView.extraInfo}}</td>
+    </tr>
+    <br>
+    <button class="btn btn-outline-dark"
+            (click)="onBack()">BACK</button>
+</table>
+
+
+

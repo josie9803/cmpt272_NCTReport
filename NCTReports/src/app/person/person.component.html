@@ -1,0 +1,29 @@
+<!-- <thead>
+    <tr>
+        <td>Location</td>
+        <td>Baddie's Name</td>
+        <td>Time</td>
+        <td>Status</td>
+    </tr>
+</thead> -->
+<!-- <tbody class="table-primary"> -->
+    <!-- <tr class="table-primary"> -->
+        <td>{{person.location.locationName}}</td>
+        <td>{{person.baddieName}}</td>
+        <td>{{person.time | date:'yyyy-MM-dd(h:mm a)' | lowercase}}</td>
+        <td>{{person.status}}</td>
+        <td>
+        <button id="more-info" 
+                class="btn btn-outline-info"
+                (click)="onView()">More Info</button>
+        </td>
+        <td>
+        <button 
+            id="delete" 
+            class="btn btn-outline-danger"
+            (click)="onDelete($event,person.id)"
+            >Delete</button>
+        </td>
+    <!-- </tr> -->
+<!-- </tbody> -->
+
